@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  firstName String
+  lastName  String
+  profession String
+  balance  Int
+  type  ProfileType
+  executingContracts Contract[] @relation("Contractor")
+  clientContracts Contract[] @relation("Client")
+}
+
+enum ProfileType {
+  CONTRACTOR
+  CLIENT
+}
+
+model Contract {
+  id Int @id @default(autoincrement())
+  terms String
+  contractor Profile @relation("Contractor", fields: [contractorId], references: [id])
+  contractorId Int
+  status ContractStatus
+  client Profile @relation("Client", fields: [clientId], references: [id])
+  clientId Int
+  jobs Job[]
+}
+
+enum ContractStatus {
+  NEW
+  IN_PROGRESS
+  TERMINATED
+}
+
+model Job {
+  id Int @id @default(autoincrement())
+  contract Contract @relation(fields: [contractId], references: [id])
+  contractId Int
+  description String
+  price Int
+  paid Boolean @default(false)
+  paymentDate DateTime?
+}
+
+view ProfileJobsView {
+  profileId Int
+  jobId Int
+  firstName String
+  lastName  String
+  profession  String
+  type ProfileType
+  price Int
+  paymentDate DateTime?
+
+  @@unique([profileId, jobId])
+}

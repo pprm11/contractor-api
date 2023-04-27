@@ -1,0 +1,571 @@
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+async function main() {
+  await Promise.all([
+    prisma.profile.upsert({
+      where: { id: 1 },
+      update: {
+        id: 1,
+        firstName: 'Harry',
+        lastName: 'Potter',
+        profession: 'Wizard',
+        balance: 11500000,
+        type: 'CLIENT',
+      },
+      create: {
+        id: 1,
+        firstName: 'Harry',
+        lastName: 'Potter',
+        profession: 'Wizard',
+        balance: 11500000,
+        type: 'CLIENT',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 2 },
+      update: {
+        id: 2,
+        firstName: 'Mr',
+        lastName: 'Robot',
+        profession: 'Hacker',
+        balance: 2311100,
+        type: 'CLIENT',
+      },
+      create: {
+        id: 2,
+        firstName: 'Mr',
+        lastName: 'Robot',
+        profession: 'Hacker',
+        balance: 2311100,
+        type: 'CLIENT',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 3 },
+      update: {
+        id: 3,
+        firstName: 'John',
+        lastName: 'Snow',
+        profession: 'Knows nothing',
+        balance: 4513000,
+        type: 'CLIENT',
+      },
+      create: {
+        id: 3,
+        firstName: 'John',
+        lastName: 'Snow',
+        profession: 'Knows nothing',
+        balance: 4513000,
+        type: 'CLIENT',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 4 },
+      update: {
+        id: 4,
+        firstName: 'Ash',
+        lastName: 'Kethcum',
+        profession: 'Pokemon master',
+        balance: 13000,
+        type: 'CLIENT',
+      },
+      create: {
+        id: 4,
+        firstName: 'Ash',
+        lastName: 'Kethcum',
+        profession: 'Pokemon master',
+        balance: 13000,
+        type: 'CLIENT',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 5 },
+      update: {
+        id: 5,
+        firstName: 'John',
+        lastName: 'Lenon',
+        profession: 'Musician',
+        balance: 640000,
+        type: 'CONTRACTOR',
+      },
+      create: {
+        id: 5,
+        firstName: 'John',
+        lastName: 'Lenon',
+        profession: 'Musician',
+        balance: 640000,
+        type: 'CONTRACTOR',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 6 },
+      update: {
+        id: 6,
+        firstName: 'Linus',
+        lastName: 'Torvalds',
+        profession: 'Programmer',
+        balance: 12140000,
+        type: 'CONTRACTOR',
+      },
+      create: {
+        id: 6,
+        firstName: 'Linus',
+        lastName: 'Torvalds',
+        profession: 'Programmer',
+        balance: 12140000,
+        type: 'CONTRACTOR',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 7 },
+      update: {
+        id: 7,
+        firstName: 'Alan',
+        lastName: 'Turing',
+        profession: 'Programmer',
+        balance: 220000,
+        type: 'CONTRACTOR',
+      },
+      create: {
+        id: 7,
+        firstName: 'Alan',
+        lastName: 'Turing',
+        profession: 'Programmer',
+        balance: 220000,
+        type: 'CONTRACTOR',
+      },
+    }),
+    prisma.profile.upsert({
+      where: { id: 8 },
+      update: {
+        id: 8,
+        firstName: 'Aragorn',
+        lastName: 'II Elessar Telcontarvalds',
+        profession: 'Fighter',
+        balance: 3140000,
+        type: 'CONTRACTOR',
+      },
+      create: {
+        id: 8,
+        firstName: 'Aragorn',
+        lastName: 'II Elessar Telcontarvalds',
+        profession: 'Fighter',
+        balance: 3140000,
+        type: 'CONTRACTOR',
+      },
+    }),
+  ]);
+  await Promise.all([
+    prisma.contract.upsert({
+      where: { id: 1 },
+      update: {
+        id: 1,
+        terms: 'bla bla bla',
+        status: 'TERMINATED',
+        clientId: 1,
+        contractorId: 5,
+      },
+      create: {
+        id: 1,
+        terms: 'bla bla bla',
+        status: 'TERMINATED',
+        clientId: 1,
+        contractorId: 5,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 2 },
+      update: {
+        id: 2,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 1,
+        contractorId: 6,
+      },
+      create: {
+        id: 2,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 1,
+        contractorId: 6,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 3 },
+      update: {
+        id: 3,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 2,
+        contractorId: 6,
+      },
+      create: {
+        id: 3,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 2,
+        contractorId: 6,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 4 },
+      update: {
+        id: 4,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 2,
+        contractorId: 7,
+      },
+      create: {
+        id: 4,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 2,
+        contractorId: 7,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 5 },
+      update: {
+        id: 5,
+        terms: 'bla bla bla',
+        status: 'NEW',
+        clientId: 3,
+        contractorId: 8,
+      },
+      create: {
+        id: 5,
+        terms: 'bla bla bla',
+        status: 'NEW',
+        clientId: 3,
+        contractorId: 8,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 6 },
+      update: {
+        id: 6,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 3,
+        contractorId: 7,
+      },
+      create: {
+        id: 6,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 3,
+        contractorId: 7,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 7 },
+      update: {
+        id: 7,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 7,
+      },
+      create: {
+        id: 7,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 7,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 8 },
+      update: {
+        id: 8,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 6,
+      },
+      create: {
+        id: 8,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 6,
+      },
+    }),
+    prisma.contract.upsert({
+      where: { id: 9 },
+      update: {
+        id: 9,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 8,
+      },
+      create: {
+        id: 9,
+        terms: 'bla bla bla',
+        status: 'IN_PROGRESS',
+        clientId: 4,
+        contractorId: 8,
+      },
+    }),
+  ]);
+  await Promise.all([
+    prisma.job.upsert({
+      where: { id: 1 },
+      update: {
+        id: 1,
+        description: 'work',
+        price: 2000000,
+        contractId: 1,
+      },
+      create: {
+        id: 1,
+        description: 'work',
+        price: 2000000,
+        contractId: 1,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 2 },
+      update: {
+        id: 2,
+        description: 'work',
+        price: 2010000,
+        contractId: 2,
+      },
+      create: {
+        id: 2,
+        description: 'work',
+        price: 2010000,
+        contractId: 2,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 3 },
+      update: {
+        id: 3,
+        description: 'work',
+        price: 2020000,
+        contractId: 3,
+      },
+      create: {
+        id: 3,
+        description: 'work',
+        price: 2020000,
+        contractId: 3,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 4 },
+      update: {
+        id: 4,
+        description: 'work',
+        price: 2000000,
+        contractId: 4,
+      },
+      create: {
+        id: 4,
+        description: 'work',
+        price: 2000000,
+        contractId: 4,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 5 },
+      update: {
+        id: 5,
+        description: 'work',
+        price: 2000000,
+        contractId: 7,
+      },
+      create: {
+        id: 5,
+        description: 'work',
+        price: 2000000,
+        contractId: 7,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 6 },
+      update: {
+        id: 6,
+        description: 'work',
+        price: 20200000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 7,
+      },
+      create: {
+        id: 6,
+        description: 'work',
+        price: 20200000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 7,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 7 },
+      update: {
+        id: 7,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 2,
+      },
+      create: {
+        id: 7,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 2,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 8 },
+      update: {
+        id: 8,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-16T19:11:26.737Z',
+        contractId: 3,
+      },
+      create: {
+        id: 8,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-16T19:11:26.737Z',
+        contractId: 3,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 9 },
+      update: {
+        id: 9,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-17T19:11:26.737Z',
+        contractId: 1,
+      },
+      create: {
+        id: 9,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-17T19:11:26.737Z',
+        contractId: 1,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 10 },
+      update: {
+        id: 10,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-17T19:11:26.737Z',
+        contractId: 5,
+      },
+      create: {
+        id: 10,
+        description: 'work',
+        price: 2000000,
+        paid: true,
+        paymentDate: '2020-08-17T19:11:26.737Z',
+        contractId: 5,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 11 },
+      update: {
+        id: 11,
+        description: 'work',
+        price: 210000,
+        paid: true,
+        paymentDate: '2020-08-10T19:11:26.737Z',
+        contractId: 1,
+      },
+      create: {
+        id: 11,
+        description: 'work',
+        price: 210000,
+        paid: true,
+        paymentDate: '2020-08-10T19:11:26.737Z',
+        contractId: 1,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 12 },
+      update: {
+        id: 12,
+        description: 'work',
+        price: 210000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 2,
+      },
+      create: {
+        id: 12,
+        description: 'work',
+        price: 210000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 2,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 13 },
+      update: {
+        id: 13,
+        description: 'work',
+        price: 1210000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 3,
+      },
+      create: {
+        id: 13,
+        description: 'work',
+        price: 1210000,
+        paid: true,
+        paymentDate: '2020-08-15T19:11:26.737Z',
+        contractId: 3,
+      },
+    }),
+    prisma.job.upsert({
+      where: { id: 14 },
+      update: {
+        id: 14,
+        description: 'work',
+        price: 1210000,
+        paid: true,
+        paymentDate: '2020-08-14T23:11:26.737Z',
+        contractId: 3,
+      },
+      create: {
+        id: 14,
+        description: 'work',
+        price: 1210000,
+        paid: true,
+        paymentDate: '2020-08-14T23:11:26.737Z',
+        contractId: 3,
+      },
+    }),
+  ]);
+}
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
