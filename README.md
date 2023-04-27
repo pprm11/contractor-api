@@ -19,6 +19,18 @@ This is a RESTFUL API with the following resources:
 * `jobs`: It represents payable steps in a contract.
 * `balance`: It represents the balance a user has
 
+### API
+  # Headers
+* It is necessary to send `profile-id` in the header to have permission to use the endpoints. Ex: profile-id=1
+
+  # Endpoints
+* GET /contracts/:id
+* GET /contracts
+* GET /jobs/unpaid
+* POST /jobs/:job_id/pay
+* GET /admin/best-profession?start=<date>&end=<date> 
+* GET /admin/best-clients?start=<date>&end=<date>&limit=<integer> 
+
 ## Running the api
 
 ### Requirements
@@ -37,6 +49,12 @@ $ yarn install
 
 ```bash
 $ docker-compose up
+```
+
+
+### Migrate the database
+```bash
+$ yarn migrate:dev
 ```
 
 ### Seeding the Api
