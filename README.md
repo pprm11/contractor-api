@@ -138,18 +138,18 @@ $ yarn format
 ## Depedences
 
 ### Production
-* **casl**:
+* **casl**
 * **class-transformer**
 * **class-validator**
 * **reflect-metadata**
 * **rxjs**
 
 ### Development
-* **nestjs**:
-* **eslint**:
-* **jest**:
-* **prettier**:
-* **prisma**:
-* **ts-node**:
+* **nestjs**
+* **eslint**
+* **jest**
+* **prettier**
+* **prisma**
+* **ts-node**
 
 
