@@ -21,11 +21,14 @@ export class JobsService {
     });
   }
 
-  async pay(jobWhereInput: Prisma.JobWhereInput, jobId: number): Promise<Job> {
+  async pay(
+    abilityRestricitonsWhereInput: Prisma.JobWhereInput,
+    jobId: number,
+  ): Promise<Job> {
     const job = await this.prisma.job.findFirst({
       where: {
         AND: [
-          jobWhereInput,
+          abilityRestricitonsWhereInput,
           {
             id: jobId,
           },

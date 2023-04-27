@@ -9,6 +9,10 @@ describe('JobService', () => {
   let service: JobsService;
   let prismaMock;
   let prismaService;
+  const bigPrice = 10000000;
+  const lowBalance = 1;
+  const fooAbilityRestricitonsWhereInput = { id: 1 };
+  const fooJobId = 1;
 
   beforeEach(async () => {
     prismaMock = mockDeep<PrismaService>();
@@ -29,7 +33,7 @@ describe('JobService', () => {
       prismaService.job.findFirst.mockResolvedValue(null);
 
       // Act
-      const pay = service.pay({ id: 1 }, 1);
+      const pay = service.pay(fooAbilityRestricitonsWhereInput, fooJobId);
 
       // Assert
       expect(pay).rejects.toThrow(
@@ -39,8 +43,6 @@ describe('JobService', () => {
 
     it('Should throw when Client has not enough balance', async () => {
       // Arrange
-      const bigPrice = 10000000;
-      const lowBalance = 1;
       const job = {
         price: bigPrice,
         contract: {
@@ -52,7 +54,7 @@ describe('JobService', () => {
       prismaService.job.findFirst.mockResolvedValue(job);
 
       // Act
-      const pay = service.pay({ id: 1 }, 1);
+      const pay = service.pay(fooAbilityRestricitonsWhereInput, fooJobId);
 
       // Assert
       expect(pay).rejects.toThrow(

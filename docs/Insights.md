@@ -53,3 +53,4 @@ You can find many to-dos in the code related to micro changes, but there is some
 * Make better depedency injection
 * Use openapi do define better the resources
 * Add to this docs a glosary and definition of the models
+* Move Http errors from service to controller
