@@ -19,11 +19,11 @@ This is a RESTFUL API with the following resources:
 * `jobs`: It represents payable steps in a contract.
 * `balance`: It represents the balance a user has
 
-### API
-  # Headers
+## API
+### Headers
 * It is necessary to send `profile-id` in the header to have permission to use the endpoints. Ex: profile-id=1
 
-  # Endpoints
+### Endpoints
 * GET /contracts/:id
 * GET /contracts
 * GET /jobs/unpaid
